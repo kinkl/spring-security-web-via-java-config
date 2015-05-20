@@ -13,4 +13,16 @@ public class HelloController {
 		model.addAttribute("message", "Hello world!");
 		return "hello";
 	}
+
+    @RequestMapping(value = "custom_login")
+    public String customLoginPage() {
+        return "my_login_page";
+    }
+
+
+    @RequestMapping(value = "custom_login", params = "error")
+    public String logonError(ModelMap map) {
+        map.addAttribute("logon_error", "Ошибка аутентификации");
+        return "my_login_page";
+    }
 }
