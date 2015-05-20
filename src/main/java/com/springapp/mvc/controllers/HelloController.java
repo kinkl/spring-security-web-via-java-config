@@ -13,4 +13,9 @@ public class HelloController {
 		model.addAttribute("message", "Hello world!");
 		return "hello";
 	}
+
+    @RequestMapping(value = "custom_login")
+    public String customLoginPage() {
+        return "my_login_page";
+    }
 }
