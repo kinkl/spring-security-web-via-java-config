@@ -18,4 +18,11 @@ public class HelloController {
     public String customLoginPage() {
         return "my_login_page";
     }
+
+
+    @RequestMapping(value = "custom_login", params = "error")
+    public String logonError(ModelMap map) {
+        map.addAttribute("logon_error", "Ошибка аутентификации");
+        return "my_login_page";
+    }
 }
