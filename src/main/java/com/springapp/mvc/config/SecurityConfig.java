@@ -20,13 +20,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
           .addFilterBefore(filter, CsrfFilter.class)
           .authorizeRequests()
             .antMatchers("/").permitAll()
-            .antMatchers("/logon_attempt").permitAll()
             .anyRequest().authenticated()
             .and()
           .formLogin()
             .loginPage("/custom_login").permitAll()
             .and()
-          .httpBasic()
+          .logout()
+            .logoutUrl("/logout_attempt")
+            .logoutSuccessUrl("/")
             .and()
           .csrf().disable();
     }

@@ -5,5 +5,8 @@
 </head>
 <body>
     <h1>Some info: ${some_info}</h1>
+    <form action="/logout_attempt" method="post">
+        <input type="submit" value="Log out"/>
+    </form>
 </body>
 </html>
